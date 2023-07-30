@@ -84,7 +84,7 @@ body {
   }
 }
 
-.content {
+main {
   width: 100%;
   flex-grow: 1;
   // we want content to handle padding so we can get hero and header blocks to
@@ -106,7 +106,5 @@ body {
   .body {
     padding: 1rem 6rem;
     font-size: 1.4rem;
-    position: sticky;
-    top: 10px;
   }
 }
