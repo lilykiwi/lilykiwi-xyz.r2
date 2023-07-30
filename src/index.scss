@@ -1,4 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
+
 html {
   background-color: #000;
   color: #fff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.headerBar {
+  min-height: 100vh;
+  border-right: solid 1px #2a2a2a;
+  background-color: #181818;
+  padding: 1rem;
+
+
+}
+
+.header {
+  width: 100%;
+
+  h1 {
+    font-family: 'Nabla', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  margin: 0.25rem;
+}
+
+.body {
+  position: sticky;
+  top: 10px;
 }
