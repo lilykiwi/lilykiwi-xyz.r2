@@ -889,7 +889,7 @@ __metadata:
     "@rollup/plugin-html": ^1.0.2
     "@rollup/plugin-node-resolve": ^15.1.0
     preact: ^10.16.0
-    rollup: ^3.26.3
+    rollup: ^3.27.0
     rollup-plugin-scss: ^4.0.0
     rollup-plugin-typescript2: ^0.35.0
     sass: ^1.64.1
@@ -1358,7 +1358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.26.3":
+"rollup@npm:^3.27.0":
   version: 3.27.0
   resolution: "rollup@npm:3.27.0"
   dependencies:
