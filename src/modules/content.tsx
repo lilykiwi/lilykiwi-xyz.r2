@@ -1,7 +1,7 @@
 import { lorem } from 'txtgen';
 import { signal, Signal, useSignal } from '@preact/signals';
 import { useEffect } from 'preact/hooks';
-import { RepoIcon, RepoForkedIcon, ArchiveIcon, StarIcon, LawIcon, CommitIcon } from '@primer/octicons-react';
+import { RepoIcon, RepoForkedIcon, ArchiveIcon, StarIcon, LawIcon, HistoryIcon } from '@primer/octicons-react';
 
 function Header(props: { children: any }) {
   return <div class="header">
@@ -122,7 +122,7 @@ function Repositories() {
             <StarIcon />{repo.stars}
           </span>
           <span class="commits">
-            <CommitIcon />{TimeFormat(Date.parse(repo.last_commit))}
+            <HistoryIcon />{TimeFormat(Date.parse(repo.last_commit))}
           </span>
           {repo.license ?
             <span class="license">
@@ -140,37 +140,22 @@ export default function Content(props: { signal: Signal<number> }) {
 
     <Segment category="info">
       <AboutMe />
-      <Repositories />
+      <Article id="myRepos" title="My Repos">
+        <Repositories />
+      </Article>
     </Segment>
 
     <Segment category="blog">
-      <Article id={1} title={lorem(3, 5)}>
+      <Article id={1} title="(this is a placeholder)">
+        <p>I'm working on this site still, this is a placeholder article for a blog feature that I'm going to be implementing. This stems from my dissatisfaction with <i>every</i> major social media platform, being centralised and for-profit. Instead, I'm going to post stuff I'm up to here!</p>
+        <p>Anyway, have some lorem ipsum:</p>
         <p>{lorem(15, 60)}</p>
         <p>{lorem(15, 60)}</p>
         <p>{lorem(15, 60)}</p>
         <p>{lorem(15, 60)}</p>
       </Article>
-
       <Article id={2} title={lorem(3, 5)}>
         <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-      </Article>
-
-      <Article id={3} title={lorem(3, 5)}>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-      </Article>
-      <Article id={4} title={lorem(3, 5)}>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-        <p>{lorem(15, 60)}</p>
-      </Article>
-      <Article id={5} title={lorem(3, 5)}>
         <p>{lorem(15, 60)}</p>
         <p>{lorem(15, 60)}</p>
         <p>{lorem(15, 60)}</p>

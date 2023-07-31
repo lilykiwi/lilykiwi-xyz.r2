@@ -75,7 +75,7 @@ function SidebarTimeline(props: { signal: Signal<number> }) {
 export default function Sidebar(props: { signal: Signal<number> }) {
   return <nav class="sideBar">
     <div class="navScroll">
-      <h1>lilykiwi.xyz</h1>
+      <a href=""><h1>lilykiwi.xyz</h1></a>
       <SidebarTimeline {...props} />
     </div>
   </nav >;
