@@ -23,7 +23,7 @@ body {
   box-sizing: border-box;
 
   .navScroll {
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100vh;
     position: sticky;
     padding: 1rem;

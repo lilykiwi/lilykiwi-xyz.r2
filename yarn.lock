@@ -889,11 +889,11 @@ __metadata:
     "@rollup/plugin-html": ^1.0.2
     "@rollup/plugin-node-resolve": ^15.1.0
     preact: ^10.16.0
-    rollup: ^3.26.3
+    rollup: ^3.27.0
     rollup-plugin-scss: ^4.0.0
     rollup-plugin-typescript2: ^0.35.0
     sass: ^1.64.1
-    tslib: ^2.6.0
+    tslib: ^2.6.1
     txtgen: ^3.0.6
     typescript: ^5.1.6
   languageName: unknown
@@ -1358,7 +1358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.26.3":
+"rollup@npm:^3.27.0":
   version: 3.27.0
   resolution: "rollup@npm:3.27.0"
   dependencies:
@@ -1586,7 +1586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.4.0, tslib@npm:^2.6.0":
+"tslib@npm:^2.4.0, tslib@npm:^2.6.1":
   version: 2.6.1
   resolution: "tslib@npm:2.6.1"
   checksum: b0d176d176487905b66ae4d5856647df50e37beea7571c53b8d10ba9222c074b81f1410fb91da13debaf2cbc970663609068bdebafa844ea9d69b146527c38fe
