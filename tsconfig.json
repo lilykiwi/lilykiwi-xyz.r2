@@ -6,6 +6,11 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "rootDir": "./",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "paths": {
       "react": [
         "./node_modules/preact/compat/"

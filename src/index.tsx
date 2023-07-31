@@ -1,6 +1,6 @@
-import { createContext, render } from 'preact';
+import { render } from 'preact';
 import './style.scss';
-import { signal, Signal, useSignal, useSignalEffect } from '@preact/signals';
+import { signal } from '@preact/signals';
 
 import { Sidebar, Content } from './modules/exports';
 

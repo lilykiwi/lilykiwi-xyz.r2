@@ -2,3 +2,4 @@
 /.yarn
 /output
 .yarnrc.yml
+/.rollup.cache

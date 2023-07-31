@@ -1,19 +1,18 @@
 import { useSignal, useSignalEffect, Signal } from "@preact/signals";
 
 const useHeadings = () => {
-
-  const _headings: Signal<HTMLElement[]> = useSignal([]);
+  const _headings: Signal<Element[]> = useSignal([]);
 
   useSignalEffect(() => {
-    const headings = document.querySelectorAll('article');
+    const headings: NodeListOf<Element> = document.querySelectorAll('article');
     _headings.value = getHeadings(headings);
   });
 
   return _headings;
 }
 
-const getHeadings = (headingElements: NodeListOf<HTMLElement>) => {
-  const headings: HTMLElement[] = [];
+const getHeadings = (headingElements: NodeListOf<Element>) => {
+  const headings: Element[] = [];
 
   headingElements.forEach((heading) => {
     headings.push(heading);
@@ -49,9 +48,6 @@ function SidebarButtons() {
 }
 
 function SidebarTimeline(props: { signal: Signal<number> }) {
-  console.log(props.signal)
-  console.log(topToArticleIndex(props.signal))
-
   let value = 8
   const headings = useHeadings();
   // get the article element from topToArticleIndex
