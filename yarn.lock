@@ -892,7 +892,7 @@ __metadata:
     rollup: ^3.26.3
     rollup-plugin-scss: ^4.0.0
     rollup-plugin-typescript2: ^0.35.0
-    sass: ^1.64.0
+    sass: ^1.64.1
     tslib: ^2.6.0
     txtgen: ^3.0.6
     typescript: ^5.1.6
@@ -1386,7 +1386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.64.0":
+"sass@npm:^1.64.1":
   version: 1.64.1
   resolution: "sass@npm:1.64.1"
   dependencies:
