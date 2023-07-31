@@ -57,6 +57,7 @@ body {
   }
 }
 
+/* ------------------------------- Repo Cards ------------------------------- */
 .repoCards {
 
   display: flex;
@@ -66,32 +67,90 @@ body {
   box-sizing: border-box;
   margin: 1rem;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 
   &>a {
-    flex-basis: calc(33% - 1.5rem);
-    display: inline-block;
+    // card link
+    flex-basis: calc(33% - 0.5rem);
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     background-color: #222;
     border: 1px solid #444;
     border-radius: 0.5rem;
     text-decoration: none;
     color: #fff;
+    padding: 0.75rem;
+    flex-wrap: wrap;
 
-    .name {
-      font-size: 1rem;
-      margin: 0.5rem;
+    p {
+      margin: 0;
     }
 
-    img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 2/1;
-      border-radius: 0.5rem;
+    span {
+      display: inline-block;
+      margin: 0 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .repoTitle {
+      display: flex;
+      gap: 0.2rem;
+      align-items: center;
+      margin: 0 0 0.5rem 0;
+
+      .repoIcon {
+        margin: 0;
+      }
+
+      .name {
+        font-size: 1rem;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+
+    }
+
+    .repoMeta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 0;
+      flex-wrap: wrap;
+
+      span {
+        margin: 0;
+      }
+
+      .stars {}
+
+      .license {}
+    }
+
+    .repoDescription {
+      margin: 0.5rem 0;
+      flex-grow: 1;
     }
   }
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+
+  .tag {
+    margin: 0;
+    background-color: #444;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* -------------------------------- Timeline -------------------------------- */
 
 .timeline {
   display: flex;

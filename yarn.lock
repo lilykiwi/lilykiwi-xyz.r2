@@ -53,6 +53,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@primer/octicons-react@npm:^19.5.0":
+  version: 19.5.0
+  resolution: "@primer/octicons-react@npm:19.5.0"
+  peerDependencies:
+    react: ">=16.3"
+  checksum: 81314f9645f4e1c168d5a9dccb0c03c96c4b7e4f0015fb61e872b0630ab1728b29b852fac4fbbcbd09448b4a507df2215f4993baa6297d4a5ef7a6fca5795812
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-alias@npm:^5.0.0":
   version: 5.0.0
   resolution: "@rollup/plugin-alias@npm:5.0.0"
@@ -875,6 +884,7 @@ __metadata:
   resolution: "lilykiwi.xyz@workspace:."
   dependencies:
     "@preact/signals": ^1.1.5
+    "@primer/octicons-react": ^19.5.0
     "@rollup/plugin-alias": ^5.0.0
     "@rollup/plugin-html": ^1.0.2
     "@rollup/plugin-node-resolve": ^15.1.0

@@ -1,6 +1,7 @@
 import { lorem } from 'txtgen';
 import { signal, Signal, useSignal } from '@preact/signals';
 import { useEffect } from 'preact/hooks';
+import { RepoIcon, RepoForkedIcon, ArchiveIcon, StarIcon, LawIcon, CommitIcon } from '@primer/octicons-react';
 
 function Header(props: { children: any }) {
   return <div class="header">
@@ -53,33 +54,82 @@ function Segment(props: { category: string, children: any }) {
   </section>;
 }
 
+function TimeFormat(time: number) {
+  const date = new Date(time);
+  return date.toLocaleDateString();
+}
+
 function Repositories() {
 
   let fetchedData = useSignal([]);
 
   useEffect(() => {
     async function getData() {
-      const repos = await fetch("https://api.github.com/users/lilykiwi/repos");
-      const json = await repos.json();
+      const repos: Response = await fetch("https://api.github.com/users/lilykiwi/repos");
+      if (repos.status !== 200) {
+        return;
+      }
+      const json: any = await repos.json();
       fetchedData.value = json.map((repo: any) => {
         return ({
-          name: repo.name,
+          name: repo.full_name,
           description: repo.description,
           html_url: repo.html_url,
-          language: repo.language,
-          default_branch: repo.default_branch,
-          img: "https://raw.githubusercontent.com/lilykiwi/" + repo.name + "/" + repo.default_branch + "/.github/preview.png"
+          license: repo.license?.spdx_id,
+          stars: repo.stargazers_count,
+          is_fork: repo.fork,
+          is_archived: repo.archived,
+          tags: repo.topics,
+          last_commit: repo.pushed_at,
         })
       });
     }
+
     getData();
   }, [fetchedData]);
+
+  if (fetchedData.value.length === 0) {
+    return <div class="repoCards"></div>;
+  }
 
   return <div class="repoCards">
     {fetchedData.value.map((repo: any) => (
       <a href={repo.html_url}>
-        <img src={repo.img} />
-        <p class="name">{repo.name}</p>
+        <p class="repoTitle">
+          <span class="repoIcon">
+            {repo.is_archived ?
+              <ArchiveIcon /> :
+              repo.is_fork ?
+                <RepoForkedIcon /> :
+                <RepoIcon />}
+          </span>
+          <span class="name">
+            {repo.name}
+          </span>
+        </p>
+        <p class="tags">
+          {repo.tags.map((tag: string) => {
+            return (
+              <span class="tag">
+                {tag}
+              </span>
+            )
+          })}
+        </p>
+        <p class="repoDescription">{repo.description}</p>
+        <p class="repoMeta">
+          <span class="stars">
+            <StarIcon />{repo.stars}
+          </span>
+          <span class="commits">
+            <CommitIcon />{TimeFormat(Date.parse(repo.last_commit))}
+          </span>
+          {repo.license ?
+            <span class="license">
+              <LawIcon />{repo.license}
+            </span> : ""
+          }
+        </p>
       </a>
     ))}
   </div>;
