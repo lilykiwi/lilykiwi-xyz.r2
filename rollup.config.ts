@@ -9,7 +9,7 @@ export default {
   output: {
     dir: 'output',
     format: 'umd',
-    name: 'PreactApp',
+    name: 'lilykiwi.xyz',
   },
   watch: {
     clearScreen: false,
