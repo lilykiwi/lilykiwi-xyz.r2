@@ -20,7 +20,7 @@
     "rollup-plugin-scss": "^4.0.0",
     "rollup-plugin-typescript2": "^0.35.0",
     "sass": "^1.64.1",
-    "tslib": "^2.6.0",
+    "tslib": "^2.6.1",
     "txtgen": "^3.0.6",
     "typescript": "^5.1.6"
   }
