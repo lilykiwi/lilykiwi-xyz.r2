@@ -10,6 +10,7 @@ export default {
     dir: 'output',
     format: 'umd',
     name: 'lilykiwi.xyz',
+    sourcemap: true,
   },
   watch: {
     clearScreen: false,

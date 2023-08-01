@@ -1,17 +1,17 @@
 import { lorem } from 'txtgen';
-import { signal, Signal, useSignal } from '@preact/signals';
+import { useSignal, Signal } from '@preact/signals';
 import { useEffect } from 'preact/hooks';
 import { RepoIcon, RepoForkedIcon, ArchiveIcon, StarIcon, LawIcon, HistoryIcon } from '@primer/octicons-react';
 
-function Header(props: { children: any }) {
+function Header(props: { children: any } | undefined) {
   return <div class="header">
-    {props.children}
+    {props?.children}
   </div>;
 }
 
 function Body(props: { children: any } | undefined) {
   return <div class="body">
-    {props.children}
+    {props?.children}
   </div>;
 }
 
@@ -65,7 +65,7 @@ function Repositories() {
 
   useEffect(() => {
     async function getData() {
-      const repos: Response = await fetch("https://api.github.com/users/lilykiwi/repos");
+      const repos: Response = await fetch("https://api.github.com/users/lilykiwi/repos", { cache: "force-cache" });
       if (repos.status !== 200) {
         return;
       }
@@ -135,9 +135,14 @@ function Repositories() {
   </div>;
 }
 
-export default function Content(props: { signal: Signal<number> }) {
-  return <main>
+export default function Content(props: {
+  scrollHook: {
+    value: Signal<number>;
+    onScroll: () => void;
+  }
+}) {
 
+  return <main id="main" onScroll={props.scrollHook.onScroll}>
     <Segment category="info">
       <AboutMe />
       <Article id="myRepos" title="My Repos">

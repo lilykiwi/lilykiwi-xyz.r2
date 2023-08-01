@@ -1,18 +1,26 @@
 import { render } from 'preact';
 import './style.scss';
-import { signal } from '@preact/signals';
-
+import { useCallback } from 'preact/hooks';
 import { Sidebar, Content } from './modules/exports';
+import { useSignal } from '@preact/signals';
 
-const scrollFromTop = signal(0);
+function Page() {
+  const value = useSignal(0);
+  const onScroll = useCallback(() => {
+    const element = document.getElementById("main");
+    console.log(element?.scrollTop)
+    value.value = element?.scrollTop || 0;
+  }, []);;
 
-const Page = <>
-  <Sidebar signal={scrollFromTop} />
-  <Content signal={scrollFromTop} />
-</>;
-
-function handler() {
-  scrollFromTop.value = document.documentElement.scrollTop;
+  return <>
+    <Sidebar
+      scrollHook={{ value: value, onScroll: onScroll }}
+    />
+    <Content
+      scrollHook={{ value: value, onScroll: onScroll }}
+    />
+  </>;
 }
-document.addEventListener("scroll", handler, { passive: true })
-render(Page, document.body);
+
+
+render(<Page />, document.body);

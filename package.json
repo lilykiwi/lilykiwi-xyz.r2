@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "yarn run build --watch",
-    "build": "rollup --config rollup.config.ts --configPlugin rollup-plugin-typescript2"
+    "build": "rollup --config rollup.config.ts --configPlugin rollup-plugin-typescript2",
+    "start:debug": "yarn run watch --inspect-brk=5858"
   },
   "packageManager": "yarn@3.6.1",
   "devDependencies": {

@@ -21,9 +21,7 @@ const getHeadings = (headingElements: NodeListOf<Element>) => {
   return headings;
 };
 
-function topToArticleIndex(signal: Signal<number>): number {
-  var value = signal.value;
-
+function topToArticleIndex(value: number): number {
   const articles = document.querySelectorAll('article');
   let closest = 0;
   for (let i = 0; i < articles.length; i++) {
@@ -39,26 +37,30 @@ function SidebarButtons() {
   return <div class="text">
     {useHeadings().value.map(function (heading) {
       // get the article element
-      const article = document.getElementById(heading.id);
+      const article: HTMLElement | null = document.getElementById(heading.id);
       // get the article's title element
-      const title = article?.querySelector('h1').innerHTML;
+      const title = article?.querySelector('h1')?.innerHTML;
       return <a id={"->" + heading.id} href={"#" + heading.id}>{title}</a>;
     })}
   </div>
 }
 
-function SidebarTimeline(props: { signal: Signal<number> }) {
+function SidebarTimeline(props: { spy: Signal<number> }) {
   let value = 8
   const headings = useHeadings();
   // get the article element from topToArticleIndex
   if (headings.value.length == 0) {
     value = 8
   } else {
-    const articleID = headings.value[topToArticleIndex(props.signal)].id;
+    const articleID = headings.value[topToArticleIndex(props.spy.value)].id;
     // get the article link
     const articleLink = document.getElementById(`->${articleID}`);
     // get the article link's position
-    value = articleLink?.offsetTop - articleLink?.parentElement?.offsetTop;
+    if (articleLink?.offsetTop && articleLink?.parentElement?.offsetTop) {
+      value = articleLink?.offsetTop - articleLink?.parentElement?.offsetTop;
+    } else {
+      value = 8
+    }
   }
 
   return <div class="timeline">
@@ -72,11 +74,16 @@ function SidebarTimeline(props: { signal: Signal<number> }) {
   </div >
 }
 
-export default function Sidebar(props: { signal: Signal<number> }) {
+export default function Sidebar(props: {
+  scrollHook: {
+    value: Signal<number>;
+    onScroll: () => void;
+  }
+}) {
   return <nav class="sideBar">
     <div class="navScroll">
-      <a href=""><h1>lilykiwi.xyz</h1></a>
-      <SidebarTimeline {...props} />
+      <a class="navTitle" href=""><h1>lilykiwi.xyz</h1></a>
+      <SidebarTimeline spy={props.scrollHook.value} />
     </div>
   </nav >;
 }
