@@ -2,6 +2,7 @@
 /.yarn
 /output
 /.rollup.cache
+#/docs # included so it will display in repo
 .yarnrc.yml
 .pnp.cjs
 .pnp.loader.mjs

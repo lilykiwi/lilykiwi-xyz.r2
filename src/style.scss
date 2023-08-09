@@ -27,7 +27,7 @@ body {
   .navScroll {
     overflow-y: auto;
     height: 100vh;
-    position: sticky;
+    //position: sticky;
     padding: 1rem;
     width: 100%;
     top: 0;
@@ -229,8 +229,14 @@ main {
 
 
 @media (max-width: 800px) {
+  html {
+    text-size-adjust: 80%;
+    -webkit-text-size-adjust: 80%;
+    -moz-text-size-adjust: 80%;
+  }
+
   .sideBar {
-    scroll-snap-align: start;
+    scroll-snap-align: end;
   }
 
   main {
@@ -244,8 +250,8 @@ main {
   }
 
   body {
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
-    //scroll-snap-stop: always;
+    scroll-snap-stop: normal;
   }
 }

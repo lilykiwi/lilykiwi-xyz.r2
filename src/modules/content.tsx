@@ -1,21 +1,39 @@
 import { lorem } from 'txtgen';
 import { useSignal, Signal } from '@preact/signals';
+import { JSX } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { RepoIcon, RepoForkedIcon, ArchiveIcon, StarIcon, LawIcon, HistoryIcon } from '@primer/octicons-react';
 
-function Header(props: { children: any } | undefined) {
+/**
+ * Header component that contains the title of the article
+ * @remarks This component is probably unnecessary, all it does is wrap its' contents in a div with the class "header". This is used in Sidebar.SidebarButtons, which specifically looks for a h1 to grab headings for the document. This should be reworked to be more general.
+ * @param props children of the header
+ * @returns {JSX.Element} Header component
+ * @see Sidebar.SidebarButtons
+ */
+export function Header(props: { children: any } | undefined): JSX.Element {
   return <div class="header">
     {props?.children}
   </div>;
 }
 
-function Body(props: { children: any } | undefined) {
+/** 
+ * Body component that contains the content of the article
+ * @remarks This component is probably unnecessary, all it does is wrap its' contents in a div with the class "body". Unlike Header, this is not used in the sidebar, and is a general wrapper for the content of the article. Styles are applied based on this class.
+ * @param props children of the body
+ * @returns {JSX.Element} Body component
+ * @see Header
+ */
+export function Body(props: { children: any } | undefined): JSX.Element {
   return <div class="body">
     {props?.children}
   </div>;
 }
 
-function Article(props: { id: string | number, title: string, children: any }) {
+/**
+ * @todo: document this
+ */
+export function Article(props: { id: string | number, title: string, children: any }): JSX.Element {
   return <article id={props.id.toString()}>
     <Header>
       <h1>{props.title}</h1>
@@ -26,7 +44,10 @@ function Article(props: { id: string | number, title: string, children: any }) {
   </article>;
 }
 
-function AboutMe() {
+/**
+ * @todo: document this
+ */
+export function AboutMe(): JSX.Element {
   const lily = {
     name: 'Lily',
     dob: Date.parse('1999-10-16'),
@@ -48,18 +69,27 @@ function AboutMe() {
 
 }
 
-function Segment(props: { category: string, children: any }) {
+/**
+ * @todo: document this
+ */
+export function Segment(props: { category: string, children: any }): JSX.Element {
   return <section id={props.category}>
     {props.children}
   </section>;
 }
 
-function TimeFormat(time: number) {
+/**
+ * @todo: document this
+ */
+export function TimeFormat(time: number): string {
   const date = new Date(time);
   return date.toLocaleDateString();
 }
 
-function Repositories() {
+/**
+ * @todo: document this
+ */
+export function Repositories(): JSX.Element {
 
   let fetchedData = useSignal([]);
 
@@ -135,14 +165,17 @@ function Repositories() {
   </div>;
 }
 
+/**
+ * @todo: document this
+ */
 export default function Content(props: {
   scrollHook: {
     value: Signal<number>;
     onScroll: () => void;
   }
-}) {
+}): JSX.Element {
 
-  return <main id="main" onScroll={props.scrollHook.onScroll}>
+  return <main id="main">
     <Segment category="info">
       <AboutMe />
       <Article id="myRepos" title="My Repos">

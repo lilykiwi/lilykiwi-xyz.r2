@@ -13,7 +13,7 @@ export default {
   },
   watch: {
     clearScreen: false,
-    include: "src/**",
+    include: "src/**/*",
     chokidar: {
       usePolling: true
     }

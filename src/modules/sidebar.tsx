@@ -1,6 +1,11 @@
 import { useSignal, useSignalEffect, Signal } from "@preact/signals";
+import { JSX } from "preact";
 
-const useHeadings = () => {
+/**
+ * useHeadings hook that returns a signal of the headings
+ * @returns {Signal<Element[]>} signal of the headings
+ */
+export const useHeadings = (): Signal<Element[]> => {
   const _headings: Signal<Element[]> = useSignal([]);
 
   useSignalEffect(() => {
@@ -11,7 +16,11 @@ const useHeadings = () => {
   return _headings;
 }
 
-const getHeadings = (headingElements: NodeListOf<Element>) => {
+/** 
+ * getHeadings function that returns an array of the headings
+ * @param headingElements list of heading elements
+ */
+export const getHeadings = (headingElements: NodeListOf<Element>) => {
   const headings: Element[] = [];
 
   headingElements.forEach((heading) => {
@@ -21,7 +30,13 @@ const getHeadings = (headingElements: NodeListOf<Element>) => {
   return headings;
 };
 
-function topToArticleIndex(value: number): number {
+/**
+ * topToArticleIndex function that returns the index of the article that is closest to the top
+ * @param value scroll position
+ * @returns {number} index of the article that is closest to the top
+ * @remarks This function is used to determine which article is currently being viewed for the scrollspy.
+ */
+export function topToArticleIndex(value: number): number {
   const articles = document.querySelectorAll('article');
   let closest = 0;
   for (let i = 0; i < articles.length; i++) {
@@ -33,7 +48,13 @@ function topToArticleIndex(value: number): number {
   return closest;
 }
 
-function SidebarButtons() {
+/**
+ * SidebarButtons component
+ * @remarks This component is a list of buttons that link to the articles.
+ * @returns {JSX.Element} SidebarButtons component
+ * @todo Add headings to the sidebar buttons based on segment, and generalise which segments get headings.
+ */
+function SidebarButtons(): JSX.Element {
   return <div class="text">
     {useHeadings().value.map(function (heading) {
       // get the article element
@@ -45,7 +66,14 @@ function SidebarButtons() {
   </div>
 }
 
-function SidebarTimeline(props: { spy: Signal<number> }) {
+/**
+ * SidebarTimeline component
+ * @remarks This component is a timeline that highlights the current article.
+ * @param props.spy scroll position signal
+ * @returns {JSX.Element} SidebarTimeline component
+ * @todo Fix the timeline dot position when the page is scrolled to the bottom, where the article isn't the height of the screen.
+ */
+export function SidebarTimeline(props: { spy: Signal<number> }): JSX.Element {
   let value = 8
   const headings = useHeadings();
   // get the article element from topToArticleIndex
@@ -74,12 +102,20 @@ function SidebarTimeline(props: { spy: Signal<number> }) {
   </div >
 }
 
-export default function Sidebar(props: {
-  scrollHook: {
-    value: Signal<number>;
-    onScroll: () => void;
-  }
-}) {
+/**
+ * Sidebar component
+ * @remarks This component is a sidebar that contains a timeline of the articles along with a scrollspy that highlights the current article.
+ * @param props.scrollHook.value scroll position signal
+ * @param props.scrollHook.onScroll scroll change callback
+ * @returns {JSX.Element} Sidebar component
+ */
+export default function Sidebar
+  (props: {
+    scrollHook: {
+      value: Signal<number>;
+      onScroll: () => void;
+    }
+  }): JSX.Element {
   return <nav class="sideBar">
     <div class="navScroll">
       <a class="navTitle" href=""><h1>lilykiwi.xyz</h1></a>
