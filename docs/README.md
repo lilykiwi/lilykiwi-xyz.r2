@@ -36,4 +36,4 @@ render(<Page />, document.body);
 
 #### Defined in
 
-[index.tsx:22](https://github.com/lilykiwi/lilykiwi.xyz/blob/a5d9c24/src/index.tsx#L22)
+[index.tsx:22](https://github.com/lilykiwi/lilykiwi.xyz/blob/0482b9d/src/index.tsx#L22)
