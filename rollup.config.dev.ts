@@ -11,6 +11,7 @@ export default {
     format: 'es',
     name: 'lilykiwi.xyz',
     sourcemap: true,
+    chunkFileNames: '[name].js'
   },
   watch: {
     clearScreen: false,
