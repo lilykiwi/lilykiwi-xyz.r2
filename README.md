@@ -28,7 +28,15 @@ This is the source code for my personal website, [lilykiwi.xyz](https://lilykiwi
 
 ## Usage
 
-To build the site, I recommend using `yarn berry`, which can be set up by running `yarn set version berry`. Then, run `yarn` to install the dependencies, and `yarn run build` to build the site. The output will be in the `output` folder. To run a development server, run `yarn run watch`, as this will rebuild if any changes are detected in src/**.
+This project uses [Yarn](https://yarnpkg.com/) for package management. It is required (I think?) to use yarn berry, which can be set up by running `yarn set version berry` or `yarn set version latest`. 
+
+To get intellisense working in vscode, you should run: `yarn dlx @yarnpkg/sdks vscode`
+
+This project includes `.pnp.cjs` and `.pnp.loader.mjs`, the alternative to `node_modules`, so you don't need to install with `yarn`, you can skip straight to:
+
+- `yarn run watch` - watches src/** for changes and rebuilds on change. might be buggy (I'm working on it!!)
+- `yarn run build` - builds the site to `output/`
+- `yarn run doc`   - generates Markdown documentation in `docs/` using [TypeDoc](https://typedoc.org/)
 
 ## License
 

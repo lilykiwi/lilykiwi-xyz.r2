@@ -43,7 +43,7 @@ Fix the timeline dot position when the page is scrolled to the bottom, where the
 
 #### Defined in
 
-[modules/sidebar.tsx:76](https://github.com/lilykiwi/lilykiwi.xyz-r2/blob/edea850/src/modules/sidebar.tsx#L76)
+[modules/sidebar.tsx:76](https://github.com/lilykiwi/lilykiwi.xyz/blob/ada3f36/src/modules/sidebar.tsx#L76)
 
 ___
 
@@ -74,7 +74,7 @@ This component is a sidebar that contains a timeline of the articles along with 
 
 #### Defined in
 
-[modules/sidebar.tsx:112](https://github.com/lilykiwi/lilykiwi.xyz-r2/blob/edea850/src/modules/sidebar.tsx#L112)
+[modules/sidebar.tsx:112](https://github.com/lilykiwi/lilykiwi.xyz/blob/ada3f36/src/modules/sidebar.tsx#L112)
 
 ___
 
@@ -96,7 +96,7 @@ getHeadings function that returns an array of the headings
 
 #### Defined in
 
-[modules/sidebar.tsx:23](https://github.com/lilykiwi/lilykiwi.xyz-r2/blob/edea850/src/modules/sidebar.tsx#L23)
+[modules/sidebar.tsx:23](https://github.com/lilykiwi/lilykiwi.xyz/blob/ada3f36/src/modules/sidebar.tsx#L23)
 
 ___
 
@@ -124,7 +124,7 @@ This function is used to determine which article is currently being viewed for t
 
 #### Defined in
 
-[modules/sidebar.tsx:39](https://github.com/lilykiwi/lilykiwi.xyz-r2/blob/edea850/src/modules/sidebar.tsx#L39)
+[modules/sidebar.tsx:39](https://github.com/lilykiwi/lilykiwi.xyz/blob/ada3f36/src/modules/sidebar.tsx#L39)
 
 ___
 
@@ -142,4 +142,4 @@ signal of the headings
 
 #### Defined in
 
-[modules/sidebar.tsx:8](https://github.com/lilykiwi/lilykiwi.xyz-r2/blob/edea850/src/modules/sidebar.tsx#L8)
+[modules/sidebar.tsx:8](https://github.com/lilykiwi/lilykiwi.xyz/blob/ada3f36/src/modules/sidebar.tsx#L8)
