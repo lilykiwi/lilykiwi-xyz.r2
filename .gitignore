@@ -1,8 +1,16 @@
+# yarn/node/rollup stuff
 /node_modules
 /.yarn
-/output
 /.rollup.cache
-#/docs # included so it will display in repo
-.yarnrc.yml
-.pnp.cjs
-.pnp.loader.mjs
+
+# build goes to /output
+/output
+
+# docs are built to /docs
+# comment this out to include them on the repo
+#/docs
+
+# yarn configuration stuff
+#.yarnrc.yml     |
+#.pnp.cjs        | - removed in transition to yarn PnP
+#.pnp.loader.mjs |
