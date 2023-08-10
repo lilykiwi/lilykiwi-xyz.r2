@@ -2,15 +2,17 @@
 /node_modules
 /.yarn
 /.rollup.cache
-
-# build goes to /output
-/output
-
-# docs are built to /docs
-# comment this out to include them on the repo
-#/docs
+/.vscode
 
 # yarn configuration stuff
 #.yarnrc.yml     |
 #.pnp.cjs        | - removed in transition to yarn PnP
 #.pnp.loader.mjs |
+
+# build goes to /output
+/output
+/output-dev
+
+# docs are built to /docs
+# comment this out to include them on the repo
+#/docs

@@ -8,8 +8,9 @@ export default {
   input: 'src/index.tsx',
   output: {
     dir: 'output',
-    format: 'umd',
+    format: 'es',
     name: 'lilykiwi.xyz',
+    sourcemap: false,
   },
   watch: {
     clearScreen: false,

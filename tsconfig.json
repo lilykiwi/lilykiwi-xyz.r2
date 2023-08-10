@@ -1,26 +1,20 @@
 {
   "compilerOptions": {
+    "module": "ESNext",
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "removeComments": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
-    "rootDir": "src/",
+    "baseUrl": "src/",
+    "rootDir": "./",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "paths": {
-      "react": [
-        ".pnp.cjs"
-      ],
-      "react-dom": [
-        ".pnp.cjs"
-      ]
-    }
   },
   "include": [
     "src"
@@ -30,8 +24,8 @@
       "src/index.tsx"
     ],
     "out": "docs",
-    "readme": "none",
     "gitRemote": "lilykiwi.xyz",
     "githubPages": false,
+    "readme": "none",
   },
 }

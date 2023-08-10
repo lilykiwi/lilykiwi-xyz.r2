@@ -10,8 +10,9 @@
     "email": "lily@lilykiwi.xyz"
   },
   "scripts": {
-    "watch": "yarn run build --watch",
-    "build": "rollup --config rollup.config.ts --configPlugin rollup-plugin-typescript2",
+    "watch": "yarn run build-dev --watch",
+    "build-dev": "rollup --config rollup.config.dev.ts --configPlugin rollup-plugin-typescript2",
+    "build": "rollup --config rollup.config.prod.ts --configPlugin rollup-plugin-typescript2",
     "doc": "typedoc --plugin typedoc-plugin-markdown"
   },
   "packageManager": "yarn@3.6.1",
