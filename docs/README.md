@@ -4,11 +4,6 @@ lilykiwi.xyz
 
 ## Table of contents
 
-### Namespaces
-
-- [Content](modules/Content.md)
-- [Sidebar](modules/Sidebar.md)
-
 ### Functions
 
 - [Page](README.md#page)
@@ -27,13 +22,6 @@ Main page component. Renders the sidebar and content.
 
 The page component.
 
-**`Example`**
-
-```ts
-import { Page } from './index';
-render(<Page />, document.body);
-```
-
 #### Defined in
 
-[index.tsx:22](https://github.com/lilykiwi/lilykiwi.xyz/blob/0482b9d/src/index.tsx#L22)
+[index.tsx:16](https://github.com/lilykiwi/lilykiwi.xyz/blob/546562a/src/index.tsx#L16)
